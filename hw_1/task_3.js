@@ -4,7 +4,7 @@
 // homework-1
 // task-3
 
-console.log('----task-3------------------')
+console.log('----task-3------------------');
 // task-3
 /*
   Необходимо написать иерархию классов вида:
@@ -33,34 +33,34 @@ console.log('----task-3------------------')
 
 class Human{
   constructor(name, age, dateOfBirth) {
-    this.name = name
-    this.age = age
-    this.dateOfBirth = dateOfBirth
+    this.name = name;
+    this.age = age;
+    this.dateOfBirth = dateOfBirth;
   }
 
   displayInfo() {
-    const info = `name: ${this.name} age: ${this.age} dateOfBirth: ${this.dateOfBirth}`
-    return info
+    const info = `name: ${this.name} age: ${this.age} dateOfBirth: ${this.dateOfBirth}`;
+    return info;
   }
-}
+};
 
 class Employee extends Human {
   constructor(name, age, dateOfBirth, salary, department){
-    super(name, age, dateOfBirth)
-    this.salary = salary
-    this.department = department
+    super(name, age, dateOfBirth);
+    this.salary = salary;
+    this.department = department;
   }
 
   displayInfo() {
-    const info = `${super.displayInfo()} salary: ${this.salary} department: ${this.department}`
-    return info
+    const info = `${super.displayInfo()} salary: ${this.salary} department: ${this.department}`;
+    return info;
   }
-}
+};
 
 class Manager extends Employee {
   constructor(name, age, dateOfBirth, salary, department) {
-    super(name, age, dateOfBirth, salary, department)
-    this._developers = []
+    super(name, age, dateOfBirth, salary, department);
+    this._developers = [];
   }
 
   set developers(developers) {
@@ -70,7 +70,7 @@ class Manager extends Employee {
     developers.forEach(newDeveloper => {
       if (this._developers.length > 0) {
         this._developers.forEach(oldDeveloper => {
-          if (!(newDeveloper instanceof Developer)) return
+          if (!(newDeveloper instanceof Developer)) return;
           if (newDeveloper !== oldDeveloper) {
             developersList.push(newDeveloper);
           }
@@ -80,8 +80,8 @@ class Manager extends Employee {
       }
     });
     this._developers = developersList;
-    console.log(`${this.name} developers:`, this._developers)
-  }
+    console.log(`${this.name} developers:`, this._developers);
+  };
 
   removeDevelopers(developers) {
     if (!developers || developers.length === 0 || this._developers.length === 0) return;
@@ -93,7 +93,7 @@ class Manager extends Employee {
         this._developers.forEach((oldDeveloper, index) => {
           if (developerToRemove === oldDeveloper) {
             developersList.splice(index, 1);
-            console.log(`developer ${developerToRemove.name} was deleted`)
+            console.log(`developer ${developerToRemove.name} was deleted`);
           }
         });
       }
@@ -104,54 +104,55 @@ class Manager extends Employee {
 
 class Developer extends Employee {
   constructor(name, age, dateOfBirth, salary, department) {
-    super(name, age, dateOfBirth, salary, department)
-    this._manager = ''
+    super(name, age, dateOfBirth, salary, department);
+    this._manager = '';
   }
 
   set manager(manager) {
-    if (!manager) return
+    if (!manager) return;
 
     if (!(manager instanceof Manager)){
-      console.log(`try to add manager to developer: ${manager.name} is not a manager`)
-      return
+      console.log(`try to add manager to developer: ${manager.name} is not a manager`);
+
+      return;
     }
 
-    this._manager = manager
-    console.log(`manager ${manager.name} is added`)
-  }
+    this._manager = manager;
+    console.log(`manager ${manager.name} is added`);
+  };
 
   displayInfo() {
-    super.displayInfo()
-  }
-}
+    super.displayInfo();
+  };
+};
 
-const dateOfBirthVasya = new Date(2018, 10, 20)
-const vasya = new Human('Vasya', 12, dateOfBirthVasya)
-console.log(vasya.displayInfo())
+const dateOfBirthVasya = new Date(2018, 10, 20);
+const vasya = new Human('Vasya', 12, dateOfBirthVasya);
+console.log(vasya.displayInfo());
 
-const dateOfBirthEga = new Date(2013, 10, 21)
-const developerEga = new Developer('Ega', 16, dateOfBirthEga, 30, 'IT')
+const dateOfBirthEga = new Date(2013, 10, 21);
+const developerEga = new Developer('Ega', 16, dateOfBirthEga, 30, 'IT');
 
-const dateOfBirthPetya = new Date(2018, 10, 21)
-const developerPetya = new Developer('Petya', 14, dateOfBirthPetya, 50, 'IT')
+const dateOfBirthPetya = new Date(2018, 10, 21);
+const developerPetya = new Developer('Petya', 14, dateOfBirthPetya, 50, 'IT');
 
-const dateOfBirthVitya = new Date(2018, 10, 25)
-const developerVitya = new Developer('Vitya', 14, dateOfBirthVitya, 40, 'WEB')
+const dateOfBirthVitya = new Date(2018, 10, 25);
+const developerVitya = new Developer('Vitya', 14, dateOfBirthVitya, 40, 'WEB');
 
-const dateOfBirthElena = new Date(2015, 9, 28)
-const developerElena = new Developer('Elena', 20, dateOfBirthElena, 20, 'WEB')
+const dateOfBirthElena = new Date(2015, 9, 28);
+const developerElena = new Developer('Elena', 20, dateOfBirthElena, 20, 'WEB');
 
-const dateOfBirthOlga = new Date(2017, 4, 5)
-const managerOlga = new Manager('Olga', 18, dateOfBirthOlga, 20, 'WEB')
+const dateOfBirthOlga = new Date(2017, 4, 5);
+const managerOlga = new Manager('Olga', 18, dateOfBirthOlga, 20, 'WEB');
 
-const dateOfBirthSasha = new Date(2011, 7, 16)
-const managerSasha = new Manager('Sasha', 20, dateOfBirthSasha, 30, 'IT')
+const dateOfBirthSasha = new Date(2011, 7, 16);
+const managerSasha = new Manager('Sasha', 20, dateOfBirthSasha, 30, 'IT');
 
-managerOlga.developers = [developerElena, developerEga]
-managerSasha.developers = [developerPetya, developerVitya]
+managerOlga.developers = [developerElena, developerEga];
+managerSasha.developers = [developerPetya, developerVitya];
 
-managerSasha.removeDevelopers([developerPetya])
+managerSasha.removeDevelopers([developerPetya]);
 
-developerPetya.manager = managerOlga
+developerPetya.manager = managerOlga;
 
-developerPetya.manager = vasya
+developerPetya.manager = vasya;

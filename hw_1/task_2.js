@@ -4,7 +4,7 @@
 // homework-1
 // task-2
 
-console.log('----task-2------------------')
+console.log('----task-2------------------');
 // task-2
 /* Написать функцию calculateArea, которая будет принимать параметры,
   для вычисления площади(можете выбрать какую то конкретную фигуру,
@@ -32,37 +32,37 @@ console.log('----task-2------------------')
 // S = a * h
 
 const calculateArea = (figure = 'triangle', input = [1, 2]) => {
-  let area = 0
+  let area = 0;
 
   switch (figure) {
     case 'triangle':
-      const [triangleA, triangleH] = input
-      area = (triangleA * triangleH) / 2
+      const [triangleA, triangleH] = input;
+      area = (triangleA * triangleH) / 2;
       break;
 
     case 'rectangle':
-      const [rectangleA, rectangleB] = input
-      area = (rectangleA * rectangleB)
+      const [rectangleA, rectangleB] = input;
+      area = (rectangleA * rectangleB);
       break;
 
     case 'trapezium':
-      const [trapeziumA, trapeziumB, trapeziumH] = input
-      area = ((trapeziumA + trapeziumB) * trapeziumH) / 2
+      const [trapeziumA, trapeziumB, trapeziumH] = input;
+      area = ((trapeziumA + trapeziumB) * trapeziumH) / 2;
       break;
 
     case 'circle':
-      const [circleR] = input
-      area = 3.14 * Math.pow(circleR, 2)
+      const [circleR] = input;
+      area = 3.14 * Math.pow(circleR, 2);
       break;
 
     case 'diamond':
-      const [diamondA, diamondH] = input
-      area = diamondA * diamondH
+      const [diamondA, diamondH] = input;
+      area = diamondA * diamondH;
       break;
 
     default:
-      const [defaultA, defaultH] = input
-      area = (defaultA * defaultH) / 2
+      const [defaultA, defaultH] = input;
+      area = (defaultA * defaultH) / 2;
       break;
   }
 
@@ -70,20 +70,19 @@ const calculateArea = (figure = 'triangle', input = [1, 2]) => {
     area,
     figure,
     input,
-  }
+  };
 
-  return result
+  return result;
 }
 
 const calculateAllAreas = figures => {
-  if (!figures) return
+  if (!figures) return;
 
   figures.forEach(figure => {
     const result = calculateArea(figure.figureType, figure.input);
-    console.log(`${figure.figureType} result:`, result)
+    console.log(`${figure.figureType} result:`, result);
   });
-
-}
+};
 
 const figuresItems = [
   {
@@ -106,6 +105,6 @@ const figuresItems = [
     figureType: 'diamond',
     input: [2, 4],
   },
-]
+];
 
 calculateAllAreas(figuresItems);
